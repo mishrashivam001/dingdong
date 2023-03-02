@@ -62,7 +62,7 @@ class UserInfoState extends State<UserInfo> {
                 Container(
                   margin:EdgeInsets.only(top: 10.w),
                   decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.black,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(30),
                         topRight: Radius.circular(30)),
@@ -70,7 +70,6 @@ class UserInfoState extends State<UserInfo> {
                 ),
                 Column(
                     children: <Widget>[
-
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[

@@ -8,7 +8,7 @@ class MyThemePreferences {
     sharedPreferences.setBool(THEME_KEY, value);
   }
 
-  getTheme() async {
+  static Future getTheme() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.getBool(THEME_KEY) ?? false;
   }

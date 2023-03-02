@@ -10,7 +10,6 @@ import 'package:ding_dong/core/utils/sizer.dart';
 import '../../../core/constant/app_colors.dart';
 import '../base_view.dart';
 import '../dashboard/its_match.dart';
-import '../dashboard/user_pics.dart';
 import '../user_profile/user_details.dart';
 import '../auth/splash_screen.dart';
 import '../../../generated/l10n.dart';
@@ -18,7 +17,8 @@ import '../auth/login_phone.dart';
 
 class HomeFragment extends StatelessWidget {
    HomeFragment({Key? key}) : super(key: key);
-  int valueHolder = 20;
+
+  String genderData = '';
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,8 @@ class HomeFragment extends StatelessWidget {
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: SvgPicture.asset(
-            AssetsPath.userBack,height: 8.w,
+            AssetsPath.userBack,
+            height: 8.w,
           ),
         ),
         centerTitle: true,
@@ -40,7 +41,8 @@ class HomeFragment extends StatelessWidget {
               onPressed: () {
                 showModalBottomSheet<void>(
                   context: context,
-                  shape: const RoundedRectangleBorder( // <-- SEE HERE
+                  shape: const RoundedRectangleBorder(
+                    // <-- SEE HERE
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(25.0),
                     ),
@@ -63,11 +65,11 @@ class HomeFragment extends StatelessWidget {
                 );
               }
               return Swiper(
-                itemBuilder:(BuildContext context, int index) {
-                  return _buildUserImage(context,model.match[index]);
+                itemBuilder: (BuildContext context, int index) {
+                  return _buildUserImage(context, model.match[index]);
                 },
-                itemWidth:double.infinity,
-                itemHeight:70.h,
+                itemWidth: double.infinity,
+                itemHeight: 70.h,
                 layout: SwiperLayout.TINDER,
                 itemCount: model.match.length,
               );
@@ -80,179 +82,152 @@ class HomeFragment extends StatelessWidget {
   }
 
   Widget _buildFilter(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 5.w,left: 5.w,top: 5.w),
-      alignment: Alignment.center,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // SizedBox(width: 5.w,),
-              SvgPicture.asset(AssetsPath.userFilter, height: 2.h, width: 5.w),
-              const Spacer(),
-              Text(
-                S.current.fltr_title,
-                style: TextStyle(
-                    fontSize: 13.sp,
-                    fontWeight: FontWeight.bold),
-              ),
-              const Spacer(),
-            ],
-          ),
-          SizedBox(
-            height: 3.w,
-          ),
-          Text(
-            S.current.fltr_show,
-            style: TextStyle(
-              fontSize: 11.sp,
+    return BaseStatefulView<HomeFragmentViewModel>(loadOnInit: (model) {
+      model.init();
+    }, builder: (context, model, child) {
+      if (model.loading) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      }
+      return Container(
+        margin: EdgeInsets.only(right: 5.w, left: 5.w, top: 5.w),
+        alignment: Alignment.center,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // SizedBox(width: 5.w,),
+                SvgPicture.asset(AssetsPath.userFilter,
+                    height: 2.h, width: 5.w),
+                const Spacer(),
+                Text(
+                  S.current.fltr_title,
+                  style:
+                      TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold),
+                ),
+                const Spacer(),
+              ],
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PhoneLogin()),
-                  );
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(top: 1.h),
-                  height: 4.5.h,
-                  width: 22.w,
-                  decoration: BoxDecoration(
-                      color: SplashScreen.gradientTopColor,
-                      borderRadius: BorderRadius.all(Radius.circular(4.w))),
-                  child: Text(
-                    S.current.prf_female,
-                    style: TextStyle(fontSize: 11.sp),
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PhoneLogin()),
-                  );
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(top: 1.h),
-                  height: 4.5.h,
-                  width: 22.w,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(4.w)),
-                      border: Border.all(color: SplashScreen.gradientTopColor)),
-                  child: Text(
-                    S.current.prf_male,
-                    style: TextStyle(
-                        fontSize: 11.sp),
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PhoneLogin()),
-                  );
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(top: 1.h),
-                  height: 4.5.h,
-                  width: 22.w,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(4.w)),
-                      border: Border.all(color: SplashScreen.gradientTopColor)),
-                  child: Text(
-                    S.current.fltr_both,
-                    style: TextStyle(fontSize: 11.sp),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 5.w,
-          ),
-          SizedBox(
-            height: 5.5.h,
-            child: TextField(
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                    labelText: S.current.flter_loc,
-                    suffixIcon: const Icon(Icons.location_searching),
-                    hintStyle: const TextStyle(
-                      color: AppColors.iconTopColor,
-                    ),
-                    filled: true,
-                    enabledBorder: const OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                      borderSide: BorderSide(color:AppColors.iconTopColor, width: 1),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                        borderSide: BorderSide(
-                            color: SplashScreen.gradientTopColor, width: 1)))),
-          ),
-          SizedBox(
-            height: 5.w,
-          ),
-          Text(
-            S.current.fltr_dis,
-            style: TextStyle(
-              fontSize: 11.sp,
-              fontWeight: FontWeight.bold,
+            SizedBox(
+              height: 3.w,
             ),
-          ),
-          Slider(
-              value: valueHolder.toDouble(),
-              min: 1,
-              max: 100,
-              thumbColor: SplashScreen.gradientTopColor,
-              divisions: 100,
-              activeColor: SplashScreen.gradientTopColor,
-              inactiveColor: Colors.grey,
-              label: '${valueHolder.round()}',
-              onChanged: (double newValue) {
-                /*setState(() {
-                                    valueHolder = newValue.round();
-                                  });*/
-              },
-              semanticFormatterCallback: (double newValue) {
-                return '${newValue.round()}';
-              }),
-          Text(
-            S.current.fltr_age,
-            style: TextStyle(
+            Text(
+              S.current.fltr_show,
+              style: TextStyle(
                 fontSize: 11.sp,
-                fontWeight: FontWeight.bold),
-          ),
-          Slider(
-              value: valueHolder.toDouble(),
-              min: 1,
-              max: 100,
-              thumbColor: SplashScreen.gradientTopColor,
-              divisions: 100,
-              activeColor: SplashScreen.gradientTopColor,
-              inactiveColor: Colors.grey,
-              label: '${valueHolder.round()}',
-              onChanged: (double newValue) =>valueHolder = newValue.round(),
-              semanticFormatterCallback: (double newValue) {
-                return '${newValue.round()}';
-              }),
-          SizedBox(
-            height: 11.w,
-            width: 90.w,
-            child: ElevatedButton(
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildRadio(S.current.prf_female, model.selectGender==0,()=>model.setGender(0)),
+                _buildRadio(S.current.prf_male,  model.selectGender==1, () => model.setGender(1)),
+                _buildRadio(S.current.prf_trans,  model.selectGender==2, () => model.setGender(2)),
+              ],
+            ),
+            SizedBox(
+              height: 5.w,
+            ),
+            SizedBox(
+              height: 5.5.h,
+              child: TextField(
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                      labelText: S.current.flter_loc,
+                      suffixIcon: const Icon(Icons.location_searching),
+                      hintStyle: const TextStyle(
+                        color: AppColors.iconTopColor,
+                      ),
+                      filled: true,
+                      enabledBorder: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        borderSide:
+                            BorderSide(color: AppColors.iconTopColor, width: 1),
+                      ),
+                      focusedBorder: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                          borderSide: BorderSide(
+                              color: SplashScreen.gradientTopColor,
+                              width: 1)))),
+            ),
+            SizedBox(
+              height: 5.w,
+            ),
+            Text(
+              S.current.fltr_dis,
+              style: TextStyle(
+                fontSize: 11.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Slider(
+                value: model.distance.toDouble(),
+                min: 1,
+                max: 100,
+                thumbColor: SplashScreen.gradientTopColor,
+                divisions: 100,
+                activeColor: SplashScreen.gradientTopColor,
+                inactiveColor: Colors.grey,
+                label: '${model.distance.round()}',
+                onChanged: (double newValue) {
+                 model.setDistance(newValue);
+                },
+                semanticFormatterCallback: (double newValue) {
+                  return '${newValue.round()}';
+                }),
+            Text(
+              S.current.fltr_age,
+              style: TextStyle(fontSize: 11.sp, fontWeight: FontWeight.bold),
+            ),
+            Slider(
+                value: model.age.toDouble(),
+                min: 1,
+                max: 100,
+                thumbColor: AppColors.iconTopColor,
+                divisions: 100,
+                activeColor: AppColors.iconTopColor,
+                inactiveColor: Colors.grey,
+                label: '${model.age.round()}',
+                onChanged: (double newValue) => model.setAge(newValue),
+                semanticFormatterCallback: (double newValue) {
+                  return '${newValue.round()}';
+                }),
+            SizedBox(
+              height: 11.w,
+              width: 90.w,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context, rootNavigator: true)
+                        .push(MaterialPageRoute(
+                      builder: (_) => const MatchScreen(),
+                    ));
+                  },
+                  style: ButtonStyle(
+                      // backgroundColor: MaterialStateProperty.all(Colors.white),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(3.w),
+                        side: const BorderSide(
+                            color: SplashScreen.gradientTopColor)),
+                  )),
+                  child: Text(
+                    S.current.fltr_reset,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12.sp, color: SplashScreen.gradientTopColor),
+                  )),
+            ),
+            SizedBox(
+              height: 3.w,
+            ),
+            SizedBox(
+              height: 12.w,
+              width: 90.w,
+              child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(context, rootNavigator: true)
                       .push(MaterialPageRoute(
@@ -260,54 +235,27 @@ class HomeFragment extends StatelessWidget {
                   ));
                 },
                 style: ButtonStyle(
-                    // backgroundColor: MaterialStateProperty.all(Colors.white),
+                    backgroundColor: MaterialStateProperty.all(
+                        SplashScreen.gradientTopColor),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(3.w),
-                          side: const BorderSide(
-                              color: SplashScreen.gradientTopColor)),
+                        borderRadius: BorderRadius.circular(3.w),
+                      ),
                     )),
                 child: Text(
-                  S.current.fltr_reset,
+                  S.current.fltr_apply,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 12.sp, color: SplashScreen.gradientTopColor),
-                )),
-          ),
-          SizedBox(
-            height: 3.w,
-          ),
-          SizedBox(
-            height: 12.w,
-            width: 90.w,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context, rootNavigator: true)
-                    .push(MaterialPageRoute(
-                  builder: (_) => const MatchScreen(),
-                ));
-              },
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(SplashScreen.gradientTopColor),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(3.w),
-                    ),
-                  )),
-              child: Text(
-                S.current.fltr_apply,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  color: Colors.white,
+                    fontSize: 12.sp,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-            ),
-          )
-        ],
-      ),
-    );
+            )
+          ],
+        ),
+      );
+    });
   }
 
   Widget _buildUserImage(BuildContext context, SelfUser user) {
@@ -326,17 +274,13 @@ class HomeFragment extends StatelessWidget {
                 children: <Widget>[
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const UserPics()),
-                      );
+                      // model.imageList[index];
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(5.w)),
                       child: Image.asset(
                         user.image,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.fitWidth,
                       ),
                     ),
                   ),
@@ -425,36 +369,14 @@ class HomeFragment extends StatelessWidget {
                         height: 3.w,
                       ),
                       DotsIndicator(
-                        dotsCount: 5,
-                        position: 1,
+                        dotsCount: model.imageList.length,
+                        position: 0,
                         decorator: DotsDecorator(
-                          size: Size(12.w, 2.w),
-                          activeSize: Size(12.w, 2.w),
-                          shapes: [
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.w),
-                            ),
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0)),
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0)),
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0)),
-                          ],
-                          activeShapes: [
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0)),
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0)),
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25.0)),
-                          ],
+                          size: Size.square(2.5.w),
+                          activeSize: Size(10.w, 2.5.w),
+                          activeColor: Colors.blueAccent,
+                          activeShape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0)),
                         ),
                       ),
                       SizedBox(
@@ -489,7 +411,8 @@ class HomeFragment extends StatelessWidget {
       ),
       InkWell(
           onTap: () {
-            Navigator.of(context, rootNavigator: true).pushNamed(ScreenRoutes.userMatch);
+            Navigator.of(context, rootNavigator: true)
+                .pushNamed(ScreenRoutes.userMatch);
           },
           child: Image.asset(
             AssetsPath.dashLove,
@@ -500,5 +423,25 @@ class HomeFragment extends StatelessWidget {
         width: 3.w,
       ),
     ]);
+  }
+
+
+  Widget _buildRadio(String text,bool selected,Function() onSelect){
+    return  GestureDetector(
+      key: key,
+      onTap: (){
+        onSelect();
+        genderData = text;
+      },
+      child: Container(
+        padding: EdgeInsets.all(2.w),
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            border: Border.all(color: SplashScreen.gradientTopColor,width: 0.2.w),
+            color: selected ? SplashScreen.gradientTopColor : Colors.white.withOpacity(0.0)
+        ),
+        child: Text(text, style: TextStyle(color: selected  ? Colors.white : SplashScreen.gradientTopColor, fontSize: 12.sp)),
+      ),
+    );
   }
 }

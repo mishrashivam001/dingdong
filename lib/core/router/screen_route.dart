@@ -18,4 +18,8 @@ class ScreenRoutes{
   static const String userPics = "/user_pics";
   static const String userDashboard = "/user_dashboard";
   static const String userChat = "/user_chat";
+  static const String userEdit = "/edit_profile_screen";
+  static const String userLocEdit = "/user_loc_edit";
+  static const String userInterestEdit = "/user_interest_edit";
+  static const String userSetting = "/user_setting";
 }

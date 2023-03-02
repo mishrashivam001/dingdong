@@ -6,11 +6,12 @@ class ApiServices {
   late Dio _dio;
   ApiServices._() {
     BaseOptions options = BaseOptions(
-      baseUrl: '',
+      baseUrl: 'https://api.planetgraphdevs.top/',
       receiveDataWhenStatusError: true,
     );
     _dio = Dio(options);
     _dio.options.headers["Accept"] = "application/json";
+    _dio.options.headers["Content-Type"] = "application/json";
     _dio.options.connectTimeout = 150000;
     _dio.options.sendTimeout = 100000;
     _dio.options.receiveTimeout = 120000;
@@ -23,7 +24,4 @@ class ApiServices {
   return null;
   }
 
-// static Future<Response> get(Dio dio, String url) async {
-//   return dio.get(url);
-// }
 }

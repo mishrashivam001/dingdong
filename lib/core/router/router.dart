@@ -8,12 +8,16 @@ import 'package:ding_dong/ui/screen/dashboard/fragment_message.dart';
 import 'package:ding_dong/ui/screen/dashboard/fragment_profile.dart';
 import 'package:ding_dong/ui/screen/dashboard/its_match.dart';
 import 'package:ding_dong/ui/screen/dashboard/user_pics.dart';
+import 'package:ding_dong/ui/screen/user_profile/edit_profile_screen.dart';
 import 'package:ding_dong/ui/screen/user_profile/profile_complete.dart';
 import 'package:ding_dong/ui/screen/user_profile/profile_details.dart';
 import 'package:ding_dong/ui/screen/user_profile/user_chat.dart';
 import 'package:ding_dong/ui/screen/user_profile/user_details.dart';
 import 'package:ding_dong/ui/screen/user_profile/user_interest.dart';
+import 'package:ding_dong/ui/screen/user_profile/user_interest_edit.dart';
 import 'package:ding_dong/ui/screen/user_profile/user_loc.dart';
+import 'package:ding_dong/ui/screen/user_profile/user_loc_edit.dart';
+import 'package:ding_dong/ui/screen/user_profile/user_setting.dart';
 import 'package:flutter/material.dart';
 import '../../ui/screen/auth/splash_screen.dart';
 import '../../ui/screen/auth/welcome_screen.dart';
@@ -88,12 +92,28 @@ class Routes {
         screen = const MatchScreen();
         break;
 
+      case ScreenRoutes.userEdit:
+        screen =  UserEditProfileScreen();
+        break;
+
       case ScreenRoutes.userPics:
         screen = const UserPics();
         break;
 
       case ScreenRoutes.userChat:
         screen = UserChatScreen();
+        break;
+
+      case ScreenRoutes.userLocEdit:
+        screen =  UserLocationEdit();
+        break;
+
+      case ScreenRoutes.userInterestEdit:
+        screen =   UserInterestEditScreen();
+        break;
+
+      case ScreenRoutes.userSetting:
+        screen =  UserSetting();
         break;
 
       default:

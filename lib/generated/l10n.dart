@@ -1000,10 +1000,360 @@ class S {
     );
   }
 
-  /// `My name is Aishwarya Agrawal enjoyed meeting new people and finding ways tonhelp them have on uplifting experience enjoyed reading book.`
+  /// `Media`
+  String get ued_media {
+    return Intl.message(
+      'Media',
+      name: 'ued_media',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Media`
+  String get ued_add_media {
+    return Intl.message(
+      'Add Media',
+      name: 'ued_add_media',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About Me`
+  String get ued_about_me {
+    return Intl.message(
+      'About Me',
+      name: 'ued_about_me',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get ued_name {
+    return Intl.message(
+      'Name',
+      name: 'ued_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Job Title`
+  String get ued_job_title {
+    return Intl.message(
+      'Job Title',
+      name: 'ued_job_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `College`
+  String get ued_college {
+    return Intl.message(
+      'College',
+      name: 'ued_college',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Interests`
+  String get ued_interest {
+    return Intl.message(
+      'Interests',
+      name: 'ued_interest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Living In`
+  String get ued_living_in {
+    return Intl.message(
+      'Living In',
+      name: 'ued_living_in',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location`
+  String get ued_location {
+    return Intl.message(
+      'Location',
+      name: 'ued_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add City`
+  String get ued_add_city {
+    return Intl.message(
+      'Add City',
+      name: 'ued_add_city',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get ued_full_name {
+    return Intl.message(
+      'Full Name',
+      name: 'ued_full_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for city`
+  String get ued_loc_city {
+    return Intl.message(
+      'Search for city',
+      name: 'ued_loc_city',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Near current location`
+  String get ued_near {
+    return Intl.message(
+      'Near current location',
+      name: 'ued_near',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I don't want to show my location`
+  String get ued_dont_show_loc {
+    return Intl.message(
+      'I don\'t want to show my location',
+      name: 'ued_dont_show_loc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `4`
+  String get uie_count {
+    return Intl.message(
+      '4',
+      name: 'uie_count',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `out of `
+  String get uie_out {
+    return Intl.message(
+      'out of ',
+      name: 'uie_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get ued_setting {
+    return Intl.message(
+      'Settings',
+      name: 'ued_setting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gold`
+  String get ued_gold {
+    return Intl.message(
+      'Gold',
+      name: 'ued_gold',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Platinum`
+  String get ued_platinum {
+    return Intl.message(
+      'Platinum',
+      name: 'ued_platinum',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `5`
+  String get uie_max_count {
+    return Intl.message(
+      '5',
+      name: 'uie_max_count',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Settings`
+  String get uie_acc {
+    return Intl.message(
+      'Account Settings',
+      name: 'uie_acc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Preferred Languages`
+  String get uie_lang {
+    return Intl.message(
+      'Preferred Languages',
+      name: 'uie_lang',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Age`
+  String get uie_age {
+    return Intl.message(
+      'Age',
+      name: 'uie_age',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maximum Distance`
+  String get uie_max_dis {
+    return Intl.message(
+      'Maximum Distance',
+      name: 'uie_max_dis',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment`
+  String get uie_payment {
+    return Intl.message(
+      'Payment',
+      name: 'uie_payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get uie_noti {
+    return Intl.message(
+      'Notifications',
+      name: 'uie_noti',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Legal`
+  String get uie_legal {
+    return Intl.message(
+      'Legal',
+      name: 'uie_legal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy`
+  String get uie_privacy {
+    return Intl.message(
+      'Privacy',
+      name: 'uie_privacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Us`
+  String get uie_contact_us {
+    return Intl.message(
+      'Contact Us',
+      name: 'uie_contact_us',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get uie_log_out {
+    return Intl.message(
+      'Logout',
+      name: 'uie_log_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Account`
+  String get uie_dlt_acc {
+    return Intl.message(
+      'Delete Account',
+      name: 'uie_dlt_acc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get uie_phone {
+    return Intl.message(
+      'Phone Number',
+      name: 'uie_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify your phone number to help us to secure your account`
+  String get uie_phone_desc {
+    return Intl.message(
+      'Verify your phone number to help us to secure your account',
+      name: 'uie_phone_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `+91`
+  String get uie_number_code {
+    return Intl.message(
+      '+91',
+      name: 'uie_number_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify`
+  String get uie_verify {
+    return Intl.message(
+      'Verify',
+      name: 'uie_verify',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My name is Aishwarya Agrawal enjoyed meeting new people and finding ways to help them have on uplifting experience enjoyed reading book.`
   String get ud_desc {
     return Intl.message(
-      'My name is Aishwarya Agrawal enjoyed meeting new people and finding ways tonhelp them have on uplifting experience enjoyed reading book.',
+      'My name is Aishwarya Agrawal enjoyed meeting new people and finding ways to help them have on uplifting experience enjoyed reading book.',
       name: 'ud_desc',
       desc: '',
       args: [],

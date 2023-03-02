@@ -1,10 +1,12 @@
 import 'package:ding_dong/controller/view_models/prf_complete_view_model.dart';
 import 'package:ding_dong/controller/view_models/profile_fragment_view_model.dart';
+import 'package:ding_dong/core/constant/app_colors.dart';
 import 'package:ding_dong/core/constant/data.dart';
 import 'package:ding_dong/core/router/assets_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ding_dong/core/utils/sizer.dart';
+import '../../../core/router/screen_route.dart';
 import '../auth/splash_screen.dart';
 import '../../../generated/l10n.dart';
 import '../base_view.dart';
@@ -28,12 +30,12 @@ class ProfileFragment extends StatelessWidget {
           AssetsPath.getLogo,
         ),
       ),
-      body: SingleChildScrollView(
-        child: BaseStatelessView<ProfileFragmentViewModel>(
+      body:  BaseStatelessView<ProfileFragmentViewModel>(
           builder: (context, model, child) {
-            return _buildProfileContent(context,model.match);
+            return SingleChildScrollView(
+                child:_buildProfileContent(context,model.match));
           },),
-      ),
+
     );
   }
 
@@ -100,7 +102,7 @@ class ProfileFragment extends StatelessWidget {
                     ),
                   ])),
           SizedBox(height: 6.w),
-          _buildEdit(),
+          _buildEdit(context),
           SizedBox(height: 8.w),
           _buildBoostContent(),
           SizedBox(height: 10.w),
@@ -114,53 +116,36 @@ class ProfileFragment extends StatelessWidget {
     ),);
   }
 
-  Widget _buildEdit() {
+  Widget _buildEdit(context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(1.w))),
-          child: SvgPicture.asset(
-            AssetsPath.dashEdit,
-            height: 2.h,
-            width: 8.w,
-            color: SplashScreen.gradientTopColor,
+        InkWell(
+          onTap: (){
+            Navigator.pushNamed(context, ScreenRoutes.userEdit);
+          },
+          child: Container(
+    padding: EdgeInsets.only(top: 3.w,left: 5.w,right: 5.w,bottom: 3.w),
+            decoration: BoxDecoration(
+              color: AppColors.iconTopColor,
+                borderRadius: BorderRadius.all(Radius.circular(3.w))),
+            child: Text(S.current.up_ed_prf,style: TextStyle(fontSize: 12.sp,color: AppColors.darkSecondaryColor),)
           ),
         ),
-        SizedBox(
-          width: 1.w,
-        ),
+        SizedBox(width: 10.w,),
         InkWell(
-          onTap: () {},
-          child: Text(S.current.up_ed_prf,
-              style: TextStyle(
-                  fontSize: 11.sp,
-                  color: SplashScreen.gradientTopColor,
-                  fontWeight: FontWeight.bold)),
-        ),
-        SizedBox(
-          width: 5.w,
-        ),
-        SvgPicture.asset(
-          AssetsPath.dashSetting,
-          height: 2.h,
-          width: 4.w,
-          color: Colors.black,
-        ),
-        SizedBox(
-          width: 1.w,
-        ),
-        InkWell(
-          onTap: () {},
-          child: Text(S.current.up_setting,
-              style: TextStyle(
-                  fontSize: 11.sp,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold)),
-        ),
-      ],
+          onTap: (){
+            Navigator.pushNamed(context, ScreenRoutes.userSetting);
+          },
+          child: Container(
+            padding: EdgeInsets.only(top: 2.w,left: 5.w,right: 5.w,bottom: 2.w),
+              decoration: BoxDecoration(
+                  border: Border.all(width: 0.5.w, color: AppColors.iconTopColor),
+                  borderRadius: BorderRadius.all(Radius.circular(3.w))),
+              child: Text(S.current.up_setting,style: TextStyle(fontSize: 12.sp,color: AppColors.darkSecondaryColor),)
+          ),
+        ),],
     );
   }
 

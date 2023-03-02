@@ -9,20 +9,29 @@ class UserInterestViewModel extends BaseViewModel {
   final CreateInterests _interests = Data.userInterest;
   CreateInterests get interests => _interests;
 
-  login(String email, String pass) async{
-    // call api from api
-    setLoading();
-    // api.login();
-    await Future.delayed(const Duration(seconds: 5));
-    setSuccess();
-    setError('message');
-  }
+  List<bool> _isChecked = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,];
+  List<bool> get isChecked => _isChecked;
+
+
+  final List<String> _userInterest = Data.userInterestList;
+  List<String> get userInterest => _userInterest;
+
 
   @override
   void dispose() {
     //... dispose items
     super.dispose();
   }
+
+  void setSelected(int index,bool isChecked){
+    _isChecked[index] = isChecked;
+    notifyListeners();
+  }
+
+  // void setIntersts(String value){
+  //   _selectInterest = value;
+  //   notifyListeners();
+  // }
 
   void init() async{
     setLoading();

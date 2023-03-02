@@ -13,17 +13,17 @@ class Data {
 
   static final List<SelfUser> me = [
     SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
+    SelfUser('Flora Agrawal, ',AssetsPath.userImage1, 25, 'Bangalore, ','Karnataka','Product Designer'),
+    SelfUser('Flora Agrawal, ',AssetsPath.userImage2, 25, 'Bangalore, ','Karnataka','Product Designer'),
+    SelfUser('Flora Agrawal, ',AssetsPath.userImage3, 25, 'Bangalore, ','Karnataka','Product Designer'),
     SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
+    SelfUser('Flora Agrawal, ',AssetsPath.userImage1, 25, 'Bangalore, ','Karnataka','Product Designer'),
+    SelfUser('Flora Agrawal, ',AssetsPath.userImage2, 25, 'Bangalore, ','Karnataka','Product Designer'),
+    SelfUser('Flora Agrawal, ',AssetsPath.userImage3, 25, 'Bangalore, ','Karnataka','Product Designer'),
     SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
-    SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
-    SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
-    SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
-    SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
-    SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
-    SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
-    SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
-    SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
-    SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
+    SelfUser('Flora Agrawal, ',AssetsPath.userImage1, 25, 'Bangalore, ','Karnataka','Product Designer'),
+    SelfUser('Flora Agrawal, ',AssetsPath.userImage2, 25, 'Bangalore, ','Karnataka','Product Designer'),
+    SelfUser('Flora Agrawal, ',AssetsPath.userImage3, 25, 'Bangalore, ','Karnataka','Product Designer'),
     SelfUser('Flora Agrawal, ',AssetsPath.userImage, 25, 'Bangalore, ','Karnataka','Product Designer'),
   ];
 
@@ -43,19 +43,62 @@ class Data {
 
   static final List<UserChats> chatList =[
     UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
+    UserChats("Flora Agarwal", AssetsPath.getImage1, "Tap to reveal the chat.", DateTime.now()),
+    UserChats("Flora Agarwal", AssetsPath.getImage2, "Tap to reveal the chat.", DateTime.now()),
+    UserChats("Flora Agarwal", AssetsPath.getImage3, "Tap to reveal the chat.", DateTime.now()),
     UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
+    UserChats("Flora Agarwal", AssetsPath.getImage1, "Tap to reveal the chat.", DateTime.now()),
+    UserChats("Flora Agarwal", AssetsPath.getImage2, "Tap to reveal the chat.", DateTime.now()),
+    UserChats("Flora Agarwal", AssetsPath.getImage3, "Tap to reveal the chat.", DateTime.now()),
     UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
-    UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
-    UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
-    UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
-    UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
-    UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
-    UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
-    UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
-    UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
-    UserChats("Flora Agarwal", AssetsPath.userImage, "Tap to reveal the chat.", DateTime.now()),
+    UserChats("Flora Agarwal", AssetsPath.getImage1, "Tap to reveal the chat.", DateTime.now()),
+    UserChats("Flora Agarwal", AssetsPath.getImage2, "Tap to reveal the chat.", DateTime.now()),
+    UserChats("Flora Agarwal", AssetsPath.getImage3, "Tap to reveal the chat.", DateTime.now()),
 
   ];
+
+  static final List<UserImage> userImageList = [
+    UserImage(AssetsPath.userImage),
+    UserImage(AssetsPath.getImage1),
+    UserImage(AssetsPath.getImage2),
+    UserImage(AssetsPath.getImage3),
+    UserImage(AssetsPath.userImage),
+    UserImage(AssetsPath.getImage1),
+    UserImage(AssetsPath.getImage2),
+    UserImage(AssetsPath.getImage3),
+  ];
+
+  static final List<String> userInterestList = [
+    "Football",
+    "Cricket",
+    "Chess",
+    "Dancing",
+    "Badminton",
+    "Reading Novels",
+    "Hockey",
+    "Swimming",
+    "Singing",
+    "Playing Guitar",
+    "Programming",
+    "Vlogging",
+    "Travelling",
+    "Walking",
+    "Sketching",
+    "Painting",
+    "Designing",
+    "Studying",
+    "Surveying",
+    "BasketBall",
+    "Bowling",
+    "Photography",
+    "Tattoos",
+    "Eating",
+    "Cooking",
+    "Shopping",
+    "Drinking",
+    "Camping",
+  ];
+
 }
 
 class ChatMessage {
@@ -129,4 +172,14 @@ class CreateInterests{
   String desc;
   List<String> interest;
   CreateInterests(this.key,this.desc,this.interest,this.title);
+}
+
+class UserInterests{
+  String title;
+  UserInterests(this.title);
+}
+
+class UserImage{
+  String image;
+  UserImage(this.image);
 }

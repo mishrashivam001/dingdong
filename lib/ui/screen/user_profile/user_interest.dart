@@ -1,11 +1,9 @@
-import 'package:ding_dong/controller/provider/theme_provider.dart';
 import 'package:ding_dong/controller/view_models/user_interest_view_model.dart';
 import 'package:ding_dong/core/constant/app_colors.dart';
 import 'package:ding_dong/core/constant/data.dart';
 import 'package:ding_dong/core/router/assets_route.dart';
 import 'package:ding_dong/core/router/screen_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ding_dong/core/utils/sizer.dart';
 import '../../../generated/l10n.dart';
@@ -221,7 +219,6 @@ class _UserInterestsPageState extends State<UserInterestsPage> {
   Widget _buildInterests(CreateInterests userInterests) {
     return Center(
       child: BaseStatefulView<UserInterestViewModel>(loadOnInit: (model) {
-
         model.init();
       }, builder: (context, model, child) {
         if (model.loading) {
@@ -230,6 +227,9 @@ class _UserInterestsPageState extends State<UserInterestsPage> {
           );
         }
         return Wrap(
+          alignment: WrapAlignment.center,
+          direction: Axis.horizontal,
+          crossAxisAlignment: WrapCrossAlignment.center,
           spacing: 8.0,
           runSpacing: 4.0,
           children: model.interests.interest.map((e) {

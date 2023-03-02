@@ -46,4 +46,13 @@ class AssetsPath{
   static const String chatMic = "assets/user_icons/chat_mic.svg";
   static const String chatEmoji = "assets/user_icons/chat_emoji.svg";
   static const String chatSend = "assets/user_icons/chat_send.svg";
+  static const String userImage1 = "assets/user_icons/image_1.jpg";
+  static const String userImage2 = "assets/user_icons/image_2.jpg";
+  static const String userImage3 = "assets/user_icons/image_3.jpg";
+
+  // User profile icon
+  static const String userPfloc = "assets/user_profile_icons/current_loc.svg";
+  static const String userPfDontLoc = "assets/user_profile_icons/dont_share_loc.svg";
+  static const String userPfForward = "assets/user_profile_icons/ued_forward.svg";
+
 }

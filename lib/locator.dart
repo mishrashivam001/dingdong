@@ -6,6 +6,7 @@ import 'package:ding_dong/controller/view_models/match_screen_view_model.dart';
 import 'package:ding_dong/controller/view_models/prf_complete_view_model.dart';
 import 'package:ding_dong/controller/view_models/prf_detail_view_model.dart';
 import 'package:ding_dong/controller/view_models/profile_fragment_view_model.dart';
+import 'package:ding_dong/controller/view_models/settings_view_model.dart';
 import 'package:ding_dong/controller/view_models/user_detail_view_model.dart';
 import 'package:ding_dong/controller/view_models/user_interest_view_model.dart';
 import 'package:ding_dong/controller/view_models/user_loc_view_model.dart';
@@ -35,4 +36,5 @@ setupLocator() {
   locator.registerFactory(() => HomeFragmentViewModel());
   locator.registerFactory(() => ProfileCompViewModel());
   locator.registerFactory(() => ChatViewModel());
+  locator.registerFactory(() => SettingsViewModel());
 }

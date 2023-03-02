@@ -13,4 +13,7 @@ class AppColors{
   static const Color darkOnPrimaryColor = Colors.white;
   static const Color chatHintColor = Color(0xFF8345FF);
   static const Color codePickerBg = Color(0xFFD9D9D9);
+  static const Color codeGold = Color(0xFFFFA012);
+  static const Color codePhoneTextBg = Color(0xFFD9D9D9);
+  static const Color codePlatinum = Color(0xFFB1B1B1);
 }

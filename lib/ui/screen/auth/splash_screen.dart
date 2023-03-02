@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:ding_dong/core/router/assets_route.dart';
 import 'package:ding_dong/core/utils/sizer.dart';
-import 'package:ding_dong/ui/screen/dashboard/activity_dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'welcome_screen.dart';
+import '../../../core/router/screen_route.dart';
 import '../../../generated/l10n.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatelessWidget {
   static const Color gradientTopColor = Color(0xFFFF0F5E);
@@ -14,37 +14,22 @@ class SplashScreen extends StatelessWidget {
 
   const SplashScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return const MyHomePage();
+  Future<void> _checkRegistration(BuildContext context) async {
+    final pref = await SharedPreferences.getInstance();
+    String? data = pref.getString('mobileNumber');
+
+    if (data?.isNotEmpty == true) {
+        Navigator.pushReplacementNamed(context, ScreenRoutes.userDashboard);
+        return;
+
+    }
+    Navigator.pushReplacementNamed(context, ScreenRoutes.phoneLogin);
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    Timer(
-        const Duration(seconds: 5),
-        () => Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    // PhoneLogin()
-                    const WelcomeScreen())));
-  }
 
   @override
   Widget build(BuildContext context) {
+    Timer(const Duration(seconds: 5), () => _checkRegistration(context));
     return Scaffold(
       body: Container(
         height: 100.h,

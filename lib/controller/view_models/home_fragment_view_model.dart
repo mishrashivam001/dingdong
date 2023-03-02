@@ -9,6 +9,23 @@ class HomeFragmentViewModel extends BaseViewModel {
   final List<SelfUser> _user = Data.me;
   List<SelfUser> get match => _user;
 
+  int _selectGender = 0;
+  int get selectGender =>_selectGender;
+  final List<UserImage> _image = Data.userImageList;
+  List<UserImage> get imageList => _image;
+
+  double _distance = 20;
+  double get distance => _distance;
+
+  double _age = 20;
+  double get age => _age;
+
+  setGender(int value){
+    _selectGender = value;
+    notifyListeners();
+  }
+
+
   login(String email, String pass) async{
     // call api from api
     setLoading();
@@ -22,6 +39,16 @@ class HomeFragmentViewModel extends BaseViewModel {
   void dispose() {
     //... dispose items
     super.dispose();
+  }
+
+  void setDistance(double value){
+    _distance = value;
+    notifyListeners();
+  }
+
+  void setAge(double value){
+    _age = value;
+    notifyListeners();
   }
 
   void init() async{
